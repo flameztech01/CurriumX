@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiSend, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FiSend, FiMail, FiMapPin, FiPhone, FiCheckCircle, FiXCircle } from 'react-icons/fi';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,18 +10,58 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear status messages when user starts typing again
+    if (submitStatus) {
+      setSubmitStatus(null);
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    setTimeout(() => setIsSubmitting(false), 1500); // Simulate submission
+    setSubmitStatus(null);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xqedyeka', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        // Reset form on success
+        setFormData({
+          name: '',
+          email: '',
+          projectType: '',
+          message: ''
+        });
+      } else {
+        const data = await response.json();
+        setSubmitStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+      
+      // Auto-hide success message after 5 seconds
+      if (submitStatus === 'success') {
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }
+    }
   };
 
   const projectTypes = [
@@ -121,6 +161,39 @@ const Contact: React.FC = () => {
           {/* Right Column - Contact Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#F2F2F2]">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg animate-fadeIn">
+                  <FiCheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <div className="flex-1">
+                    <p className="text-green-700 font-medium">Message sent successfully!</p>
+                    <p className="text-green-600 text-sm">We'll get back to you within 24 hours.</p>
+                  </div>
+                  <button 
+                    onClick={() => setSubmitStatus(null)}
+                    className="text-green-500 hover:text-green-700 transition-colors"
+                  >
+                    <FiXCircle className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg animate-fadeIn">
+                  <FiXCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <div className="flex-1">
+                    <p className="text-red-700 font-medium">Failed to send message</p>
+                    <p className="text-red-600 text-sm">{errorMessage}</p>
+                  </div>
+                  <button 
+                    onClick={() => setSubmitStatus(null)}
+                    className="text-red-500 hover:text-red-700 transition-colors"
+                  >
+                    <FiXCircle className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-[#4B0082] mb-2">
@@ -156,7 +229,7 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Project Type Dropdown */}
-              <div>
+              <div className="relative">
                 <label htmlFor="projectType" className="block text-sm font-medium text-[#4B0082] mb-2">
                   Project Type
                 </label>
@@ -173,7 +246,7 @@ const Contact: React.FC = () => {
                     <option key={type} value={type}>{type}</option>
                   ))}
                 </select>
-                <div className="absolute right-10 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <div className="absolute right-3 top-[calc(50%+12px)] transform -translate-y-1/2 pointer-events-none">
                   <svg className="w-4 h-4 text-[#6E6E6E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -205,7 +278,13 @@ const Contact: React.FC = () => {
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   {isSubmitting ? (
-                    'Sending...'
+                    <>
+                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
                   ) : (
                     <>
                       Send Message
@@ -241,6 +320,24 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Add animation styles */}
+      {/* <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style> */}
     </section>
   );
 };

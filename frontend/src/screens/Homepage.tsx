@@ -11,12 +11,24 @@ const Homepage = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <Services />
-      <Projects />
-      <About />
-      <WhyUs />
-      <Contact />
+      <section id="home">
+        <Hero />
+      </section>
+      <section id="services">
+        <Services />
+      </section>
+      <section id="our-work">
+        <Projects />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="why-us">
+        <WhyUs />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <Footer />
     </div>
   )

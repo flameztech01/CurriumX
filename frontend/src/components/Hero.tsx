@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FiSend, FiEye } from 'react-icons/fi';
 
 const Hero: React.FC = () => {

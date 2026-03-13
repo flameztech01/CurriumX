@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FiArrowRight, FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useGetProjectsQuery } from '../slices/userApiSlice';

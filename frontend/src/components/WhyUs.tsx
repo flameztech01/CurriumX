@@ -44,8 +44,8 @@ const WhyUs: React.FC = () => {
 
   const stats = [
     { number: '100%', label: 'Client Satisfaction' },
-    { number: '50+', label: 'Projects Launched' },
-    { number: '5+', label: 'Years Experience' },
+    { number: '10+', label: 'Projects Launched' },
+    { number: '2+', label: 'Years Experience' },
     { number: '24/7', label: 'Support Available' },
   ];
 

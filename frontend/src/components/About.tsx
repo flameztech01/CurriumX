@@ -87,17 +87,17 @@ const About: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-5">
               <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
-                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">50+</h4>
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">10+</h4>
                 <p className="text-sm text-[#6E6E6E] mt-2">Projects Completed</p>
               </div>
 
               <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
-                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">30+</h4>
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">6+</h4>
                 <p className="text-sm text-[#6E6E6E] mt-2">Happy Clients</p>
               </div>
 
               <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
-                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">5+</h4>
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">2+</h4>
                 <p className="text-sm text-[#6E6E6E] mt-2">Years Experience</p>
               </div>
 

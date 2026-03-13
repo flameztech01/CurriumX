@@ -139,7 +139,7 @@ const AdminProject: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-bold text-[#4B0082]">Manage Projects</h1>
-            <p className="text-gray-500">Upload, view, and remove portfolio projects</p>
+            <p className="text-gray-500">Upload, view, and remove portfolio project</p>
           </div>
 
           <button

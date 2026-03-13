@@ -1,79 +1,118 @@
-
+import React from 'react';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="relative py-24 px-6 bg-[#F9F9F9] overflow-hidden">
-      <div className="max-w-5xl mx-auto">
-        {/* Decorative line */}
-        <div className="absolute left-0 top-0 w-32 h-32 border-l-4 border-t-4 border-[#6A0DAD]/20 rounded-tl-3xl"></div>
-        <div className="absolute right-0 bottom-0 w-32 h-32 border-r-4 border-b-4 border-[#6A0DAD]/20 rounded-br-3xl"></div>
+    <section id="about" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[#6A0DAD]">
+              About CurriumX
+            </span>
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+          </div>
 
-        <div className="text-center mb-16">
-          {/* Section Header */}
-          <span className="text-[#6A0DAD] font-semibold text-sm uppercase tracking-wider mb-2 block">
-            About CurriumX
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#4B0082]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4B0082] mb-4">
             Who We Are
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] mx-auto rounded-full"></div>
+
+          <p className="text-[#6E6E6E] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            We build digital experiences that are functional, scalable, and visually refined.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Main Content */}
-          <div className="space-y-6">
-            <p className="text-lg text-[#6E6E6E] leading-relaxed">
-              CurriumX is a tech-driven digital solutions brand focused on building 
-              impactful digital experiences. We combine development, design, and 
-              strategic thinking to create products that are functional, scalable, 
-              and visually refined.
-            </p>
-            
-            <p className="text-lg text-[#6E6E6E] leading-relaxed">
-              We believe in clarity, performance, and long-term value.
-            </p>
+        {/* Main content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
+          {/* Left side */}
+          <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-3xl p-8 md:p-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#4B0082] mb-6 leading-tight">
+              A tech-driven digital solutions brand focused on impact.
+            </h3>
 
-            <div className="pt-4">
-              <a 
-                href="#contact" 
-                className="inline-flex items-center gap-2 text-[#6A0DAD] hover:text-[#4B0082] font-semibold transition-colors duration-300 group"
+            <div className="space-y-5 text-[#6E6E6E] text-base md:text-lg leading-relaxed">
+              <p>
+                CurriumX combines development, design, and strategic thinking to create
+                products that help brands grow and connect better with their audience.
+              </p>
+
+              <p>
+                We believe in clarity, performance, usability, and long-term value.
+                Every product we build is designed to solve real problems and deliver
+                meaningful results.
+              </p>
+
+              <p>
+                From websites and mobile apps to scalable web platforms and brand systems,
+                our goal is to turn ideas into polished digital experiences.
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-[#6A0DAD] hover:bg-[#4B0082] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
               >
-                Let's work together
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                Let&apos;s Work Together
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </a>
             </div>
           </div>
 
-          {/* Right Column - Values/Principles */}
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-[#F2F2F2]">
-              <h3 className="text-xl font-bold text-[#4B0082] mb-3">Our Philosophy</h3>
-              <p className="text-[#6E6E6E]">
-                Every line of code, every pixel, and every interaction is crafted with 
-                intention. We don't just build products — we build experiences that 
-                resonate with users and drive real business results.
+          {/* Right side */}
+          <div className="flex flex-col gap-6">
+            <div className="bg-white border border-[#ECECEC] rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-bold text-[#4B0082] mb-4">
+                Our Philosophy
+              </h3>
+              <p className="text-[#6E6E6E] leading-relaxed">
+                Every line of code, every visual element, and every user interaction is
+                created with purpose. We do not just build digital products — we craft
+                experiences that feel modern, useful, and aligned with business goals.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-xl shadow-md text-center">
-                <div className="text-3xl font-bold text-[#6A0DAD] mb-1">50+</div>
-                <div className="text-xs text-[#6E6E6E]">Projects</div>
+            <div className="grid grid-cols-2 gap-5">
+              <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">50+</h4>
+                <p className="text-sm text-[#6E6E6E] mt-2">Projects Completed</p>
               </div>
-              <div className="bg-white p-4 rounded-xl shadow-md text-center">
-                <div className="text-3xl font-bold text-[#6A0DAD] mb-1">30+</div>
-                <div className="text-xs text-[#6E6E6E]">Clients</div>
+
+              <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">30+</h4>
+                <p className="text-sm text-[#6E6E6E] mt-2">Happy Clients</p>
+              </div>
+
+              <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">5+</h4>
+                <p className="text-sm text-[#6E6E6E] mt-2">Years Experience</p>
+              </div>
+
+              <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
+                <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">100%</h4>
+                <p className="text-sm text-[#6E6E6E] mt-2">Focused on Quality</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom quote */}
+        {/* Quote */}
         <div className="mt-16 text-center">
-          <p className="text-lg text-[#4B0082] italic">
-            "Building digital products that stand the test of time."
+          <p className="text-lg md:text-xl italic text-[#4B0082]">
+            “Building digital products that stand the test of time.”
           </p>
         </div>
       </div>

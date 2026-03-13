@@ -17,13 +17,19 @@ import { Provider } from 'react-redux';
 import Homepage from './screens/Homepage.tsx'
 import Projects from './screens/Projects.tsx'
 
+import AdminDash from './screens/AdminDash.tsx'
+import AdminProjects from './components/AdminProjects.tsx'
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {index: true, element: <Homepage />},
-      {path: 'projects', element: <Projects />}
+      {path: 'projects', element: <Projects />},
+      {path: 'admin/dashboard', element: <AdminDash />},
+      {path: 'admin/projects', element: <AdminProjects />}
+
     ]
   }
 ])

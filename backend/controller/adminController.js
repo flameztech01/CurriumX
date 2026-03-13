@@ -100,31 +100,70 @@ const registerAdmin = asyncHandler (async (req, res, next) => {
    }
 });
 
-//Upload Project
-const uploadProject = asyncHandler(async (req, res, next) => {
-    const {name, link, category, description, technologies, image, status} = req.body;
+// Upload Project
+const uploadProject = asyncHandler(async (req, res) => {
+  const {
+    name,
+    link,
+    githubLink,
+    category,
+    description,
+    technologies,
+    status,
+    rolesAndContributions,
+    coreFeatures,
+    challengesAndSolutions,
+  } = req.body;
 
-    // Validate required fields
-    if (!name || !link || !category || !description || !technologies || !req.file || !status) {
-        res.status(400);
-        throw new Error('Please fill all fields');
-    }
+  // Validate required fields
+  if (
+    !name ||
+    !link ||
+    !category ||
+    !description ||
+    !technologies ||
+    !req.file ||
+    !status
+  ) {
+    res.status(400);
+    throw new Error('Please fill all required fields');
+  }
 
-    const newProject = await Project.create({
-        name,
-        link,
-        category,
-        description,
-        technologies,
-        image: req.file.path,
-        status
-    });
+  // Parse arrays if they come as JSON strings
+  const parsedRoles =
+    typeof rolesAndContributions === 'string'
+      ? JSON.parse(rolesAndContributions)
+      : rolesAndContributions || [];
 
-    res.status(201).json({
-        success: true,
-        message: 'Project uploaded successfully',
-        project: newProject
-    });
+  const parsedFeatures =
+    typeof coreFeatures === 'string'
+      ? JSON.parse(coreFeatures)
+      : coreFeatures || [];
+
+  const parsedChallenges =
+    typeof challengesAndSolutions === 'string'
+      ? JSON.parse(challengesAndSolutions)
+      : challengesAndSolutions || [];
+
+  const newProject = await Project.create({
+    name,
+    link,
+    githubLink,
+    category,
+    description,
+    technologies,
+    image: req.file.path,
+    status,
+    rolesAndContributions: parsedRoles,
+    coreFeatures: parsedFeatures,
+    challengesAndSolutions: parsedChallenges,
+  });
+
+  res.status(201).json({
+    success: true,
+    message: 'Project uploaded successfully',
+    project: newProject,
+  });
 });
 
 //Get all Projects

@@ -1,132 +1,138 @@
-
-import { 
-  FiTarget, 
-  FiZap, 
-  FiCode, 
-  FiTrendingUp, 
+import React from 'react';
+import {
+  FiTarget,
+  FiZap,
+  FiCode,
+  FiTrendingUp,
   FiCpu,
-  FiCheckCircle 
+  FiCheckCircle,
 } from 'react-icons/fi';
 
 const WhyUs: React.FC = () => {
   const reasons = [
     {
       icon: <FiTarget className="w-6 h-6" />,
-      title: "Strategy Before Design",
-      description: "We start with research and planning to ensure every design decision has purpose and drives results."
+      title: 'Strategy Before Design',
+      description:
+        'We start with research and planning so every design decision has direction, purpose, and measurable impact.',
     },
     {
       icon: <FiZap className="w-6 h-6" />,
-      title: "Performance-Driven Development",
-      description: "Fast loading times, optimized code, and smooth interactions that users and search engines love."
+      title: 'Performance-Driven Development',
+      description:
+        'Fast-loading pages, optimized structure, and smooth interactions that improve user experience and trust.',
     },
     {
       icon: <FiCode className="w-6 h-6" />,
-      title: "Clean & Scalable Code",
-      description: "Well-documented, maintainable code that grows with your business without technical debt."
+      title: 'Clean & Scalable Code',
+      description:
+        'We build maintainable systems with clean architecture, making future updates and growth easier.',
     },
     {
       icon: <FiTrendingUp className="w-6 h-6" />,
-      title: "Conversion-Focused Structure",
-      description: "Every element is designed to guide users toward meaningful actions and business goals."
+      title: 'Conversion-Focused Structure',
+      description:
+        'Every section is arranged to guide users clearly toward engagement, trust, and meaningful business action.',
     },
     {
       icon: <FiCpu className="w-6 h-6" />,
-      title: "Long-Term Product Thinking",
-      description: "We build for tomorrow, ensuring your product evolves with market needs and technology."
-    }
+      title: 'Long-Term Product Thinking',
+      description:
+        'We build with the future in mind, helping your product stay useful, adaptable, and competitive over time.',
+    },
+  ];
+
+  const stats = [
+    { number: '100%', label: 'Client Satisfaction' },
+    { number: '50+', label: 'Projects Launched' },
+    { number: '5+', label: 'Years Experience' },
+    { number: '24/7', label: 'Support Available' },
   ];
 
   return (
-    <section id="why-us" className="relative py-24 px-6 bg-gradient-to-br from-[#4B0082] to-[#6A0DAD] overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }}></div>
+    <section
+      id="why-us"
+      className="relative py-24 bg-gradient-to-br from-[#4B0082] via-[#5A189A] to-[#6A0DAD] overflow-hidden"
+    >
+      {/* Soft background */}
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.7) 1px, transparent 0)',
+            backgroundSize: '36px 36px',
+          }}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#F2F2F2] font-semibold text-sm uppercase tracking-wider mb-2 block">
-            Our Advantages
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            Why <span className="text-[#C0C0C0]">Currium</span>
-            <span className="text-white">X</span>?
+      <div className="absolute top-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-white/90">
+              Why Choose Us
+            </span>
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Why <span className="text-[#F28C38]">CurriumX</span>?
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#C0C0C0] to-white mx-auto mb-6 rounded-full"></div>
-          <p className="text-lg md:text-xl text-[#F2F2F2] max-w-2xl mx-auto">
-            We combine strategic thinking with technical excellence to deliver exceptional results.
+
+          <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            We combine strategy, design, and development to create digital products
+            that do more than look good — they perform.
           </p>
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Reasons */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
           {reasons.map((reason, index) => (
             <div
               key={index}
-              className="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-500 border border-white/20 hover:border-white/30"
+              className="group bg-white/10 border border-white/15 backdrop-blur-sm rounded-2xl p-7 hover:bg-white/15 hover:border-white/25 transition-all duration-300"
             >
-              {/* Icon with glow effect */}
-              <div className="relative mb-6 inline-block">
-                <div className="text-white text-3xl group-hover:scale-110 transition-transform duration-300">
-                  {reason.icon}
-                </div>
-                <div className="absolute -inset-2 bg-white/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-white mb-6 group-hover:bg-[#F28C38] group-hover:text-white transition-all duration-300">
+                {reason.icon}
               </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#C0C0C0] transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-3">
                 {reason.title}
               </h3>
-              <p className="text-[#F2F2F2] text-sm leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+
+              <p className="text-white/75 leading-relaxed text-sm md:text-base">
                 {reason.description}
               </p>
-
-              {/* Decorative corner */}
-              <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-white/20 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
+        </div>
 
-          {/* Special card for the last point or emphasis */}
-          <div className="lg:col-span-3 mt-6">
-            <div className="relative bg-gradient-to-r from-[#5A189A] to-[#7B2CBF] rounded-2xl p-8 text-center overflow-hidden">
-              <div className="absolute inset-0">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full blur-3xl"></div>
-              </div>
-              
-              <div className="relative z-10">
-                <FiCheckCircle className="w-12 h-12 text-white/80 mx-auto mb-4" />
-                <p className="text-2xl md:text-3xl font-light text-white italic">
-                  "We don't just build. We build with purpose."
-                </p>
-                <div className="w-24 h-1 bg-gradient-to-r from-[#C0C0C0] to-white mx-auto mt-4 rounded-full"></div>
-              </div>
-            </div>
+        {/* Quote card */}
+        <div className="mt-10">
+          <div className="bg-white/10 border border-white/15 backdrop-blur-sm rounded-3xl p-8 md:p-10 text-center">
+            <FiCheckCircle className="w-12 h-12 text-[#F28C38] mx-auto mb-4" />
+            <p className="text-2xl md:text-3xl font-light italic text-white">
+              “We don’t just build. We build with purpose.”
+            </p>
           </div>
         </div>
 
-        {/* Bottom Stats/Trust Indicators */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { number: "100%", label: "Client Satisfaction" },
-            { number: "50+", label: "Projects Launched" },
-            { number: "5+", label: "Years Experience" },
-            { number: "24/7", label: "Support Available" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-2xl font-bold text-white">{stat.number}</div>
-              <div className="text-xs text-[#F2F2F2] opacity-80">{stat.label}</div>
+        {/* Stats */}
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-5">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white/10 border border-white/10 rounded-2xl p-5 text-center backdrop-blur-sm"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                {stat.number}
+              </h3>
+              <p className="text-sm text-white/75 mt-2">{stat.label}</p>
             </div>
           ))}
         </div>

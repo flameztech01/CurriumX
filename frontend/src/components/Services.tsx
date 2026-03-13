@@ -1,139 +1,138 @@
 import React from 'react';
-import { 
-  FiCode, 
-  FiSmartphone, 
-  FiPenTool, 
-  FiType, 
-  FiLayers, 
-  FiUsers,
-  FiArrowRight 
+import {
+  FiCode,
+  FiSmartphone,
+  FiPenTool,
+  FiType,
+  FiLayers,
+  FiUsers
 } from 'react-icons/fi';
 
 const Services: React.FC = () => {
   const services = [
     {
-      number: "01",
+      number: '01',
       icon: <FiCode className="w-6 h-6" />,
-      title: "Web Development",
-      description: "Modern, responsive websites built for performance and conversion."
+      title: 'Web Development',
+      description: 'Modern, responsive websites built for performance and conversion.'
     },
     {
-      number: "02",
+      number: '02',
       icon: <FiSmartphone className="w-6 h-6" />,
-      title: "Mobile App Development",
-      description: "iOS & Android apps built for usability and scalability."
+      title: 'Mobile App Development',
+      description: 'iOS & Android apps built for usability and scalability.'
     },
     {
-      number: "03",
+      number: '03',
       icon: <FiPenTool className="w-6 h-6" />,
-      title: "Product Design (UI/UX)",
-      description: "Clean interfaces. Smooth experiences. Strategy-driven design."
+      title: 'Product Design (UI/UX)',
+      description: 'Clean interfaces, smooth experiences, and strategy-driven design.'
     },
     {
-      number: "04",
+      number: '04',
       icon: <FiType className="w-6 h-6" />,
-      title: "Typography & Brand Systems",
-      description: "Custom type styling, brand structure, and visual clarity."
+      title: 'Typography & Brand Systems',
+      description: 'Custom type styling, brand structure, and visual clarity.'
     },
     {
-      number: "05",
+      number: '05',
       icon: <FiLayers className="w-6 h-6" />,
-      title: "SaaS & Web Applications",
-      description: "Dashboards, admin panels, portals, and scalable systems."
+      title: 'SaaS & Web Applications',
+      description: 'Dashboards, admin panels, portals, and scalable systems.'
     },
     {
-      number: "06",
+      number: '06',
       icon: <FiUsers className="w-6 h-6" />,
-      title: "Technical Consulting",
-      description: "Helping teams structure products, architecture, and growth strategy."
+      title: 'Technical Consulting',
+      description: 'Helping teams structure products, architecture, and growth strategy.'
     }
   ];
 
   return (
-    <section id="services" className="relative py-24 px-6 bg-[#F9F9F9] overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #6A0DAD 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }}></div>
+    <section id="services" className="relative py-24 bg-[#ffffff] overflow-hidden">
+      {/* soft background */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #6A0DAD 1px, transparent 0)`,
+            backgroundSize: '36px 36px'
+          }}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[#6A0DAD] font-semibold text-sm uppercase tracking-wider mb-2 block">
-            Our Expertise
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-[#4B0082]">
-            What We Do
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[#6A0DAD]">
+              Our Services
+            </span>
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4B0082] mb-4">
+            Explore Our Digital Services
           </h2>
-          <p className="text-lg md:text-xl text-[#6E6E6E] max-w-2xl mx-auto">
-            We design and develop digital solutions that solve real problems.
+
+          <p className="text-[#6E6E6E] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            We create modern digital solutions that help brands grow, connect with users,
+            and build strong online presence.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
+        {/* Services cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          {services.map((service) => (
             <div
-              key={index}
-              className="group relative bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 border border-[#F2F2F2] hover:border-[#6A0DAD]/20 overflow-hidden"
+              key={service.number}
+              className="group bg-white rounded-2xl border border-[#ECECEC] shadow-sm hover:shadow-xl transition-all duration-300 p-7"
             >
-              {/* Number background */}
-              <div className="absolute -right-4 -top-4 text-8xl font-bold text-[#F2F2F2] group-hover:text-[#6A0DAD]/5 transition-colors duration-500">
-                {service.number}
-              </div>
-
-              {/* Icon with circle background */}
-              <div className="relative z-10 mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#6A0DAD] to-[#4B0082] text-white group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-start justify-between mb-6">
+                <div className="w-14 h-14 rounded-full bg-[#F5EEFF] flex items-center justify-center text-[#4B0082] group-hover:bg-gradient-to-br group-hover:from-[#6A0DAD] group-hover:to-[#4B0082] group-hover:text-white transition-all duration-300">
                   {service.icon}
                 </div>
+
+                <span className="text-sm font-bold text-[#D6D6D6] group-hover:text-[#F28C38] transition-colors duration-300">
+                  {service.number}
+                </span>
               </div>
 
-              {/* Content */}
-              <h3 className="relative z-10 text-xl font-bold text-[#4B0082] mb-3 group-hover:text-[#6A0DAD] transition-colors duration-300">
+              <h3 className="text-xl font-bold text-[#2F2F2F] mb-3 group-hover:text-[#4B0082] transition-colors">
                 {service.title}
               </h3>
-              <p className="relative z-10 text-[#6E6E6E] leading-relaxed mb-4">
+
+              <p className="text-[#6E6E6E] leading-relaxed text-sm md:text-base">
                 {service.description}
               </p>
-
-              {/* Learn more link */}
-              <a 
-                href={`#service-${service.number}`} 
-                className="relative z-10 inline-flex items-center gap-2 text-[#6A0DAD] hover:text-[#4B0082] font-medium text-sm transition-colors duration-300 group/link"
-              >
-                Learn More 
-                <FiArrowRight className="group-hover/link:translate-x-1 transition-transform" />
-              </a>
-
-              {/* Bottom gradient line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6A0DAD] to-[#4B0082] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>
           ))}
         </div>
 
-        {/* Stats section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-[#F2F2F2]">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#4B0082]">50+</div>
-            <div className="text-sm text-[#6E6E6E] mt-1">Projects Completed</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#4B0082]">30+</div>
-            <div className="text-sm text-[#6E6E6E] mt-1">Happy Clients</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#4B0082]">5+</div>
-            <div className="text-sm text-[#6E6E6E] mt-1">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-[#4B0082]">15+</div>
-            <div className="text-sm text-[#6E6E6E] mt-1">Team Members</div>
+        {/* Stats */}
+        <div className="mt-20 bg-[#F8F8FC] rounded-3xl border border-[#EEEEF5] px-6 md:px-10 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-[#4B0082]">50+</h3>
+              <p className="text-sm text-[#6E6E6E] mt-2">Projects Completed</p>
+            </div>
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-[#4B0082]">30+</h3>
+              <p className="text-sm text-[#6E6E6E] mt-2">Happy Clients</p>
+            </div>
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-[#4B0082]">5+</h3>
+              <p className="text-sm text-[#6E6E6E] mt-2">Years Experience</p>
+            </div>
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-[#4B0082]">15+</h3>
+              <p className="text-sm text-[#6E6E6E] mt-2">Team Members</p>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

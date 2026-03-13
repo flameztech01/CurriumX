@@ -86,61 +86,48 @@ const Projects: React.FC = () => {
       .filter(Boolean);
   };
 
-  const gradientColors = [
-    'from-[#6A0DAD] to-[#4B0082]',
-    'from-[#4B0082] to-[#5A189A]',
-    'from-[#5A189A] to-[#7B2CBF]',
-  ];
-
   const displayedProjects = projects?.slice(0, 3) || [];
 
   if (isLoading) {
     return (
-      <section id="work" className="relative py-24 px-6 bg-white overflow-hidden">
-        <div className="absolute top-40 right-0 w-96 h-96 bg-[#6A0DAD]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 left-0 w-96 h-96 bg-[#4B0082]/5 rounded-full blur-3xl"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <span className="text-[#6A0DAD] font-semibold text-sm uppercase tracking-wider mb-2 block">
-              Our Portfolio
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] bg-clip-text text-transparent">
-                Selected Work
+      <section id="our-work" className="py-24 bg-[#F8F8FC]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+              <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[#6A0DAD]">
+                Our Portfolio
               </span>
+              <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4B0082] mb-4">
+              Featured Projects
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg md:text-xl text-[#6E6E6E] max-w-2xl mx-auto">
-              A glimpse into products we've designed and built.
+
+            <p className="text-[#6E6E6E] text-base md:text-lg max-w-2xl mx-auto">
+              A glimpse into products we’ve designed and built.
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {[...Array(3)].map((_, index) => (
               <div
                 key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                }`}
+                className="bg-white rounded-2xl border border-[#ECECEC] overflow-hidden shadow-sm"
               >
-                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] bg-gray-200 animate-pulse"></div>
-                </div>
-
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                  <div className="space-y-4">
-                    <div className="h-4 w-28 bg-gray-200 rounded animate-pulse"></div>
-                    <div className="h-8 w-72 bg-gray-200 rounded animate-pulse"></div>
-                    <div className="h-5 w-full bg-gray-200 rounded animate-pulse"></div>
-                    <div className="h-5 w-5/6 bg-gray-200 rounded animate-pulse"></div>
-                    <div className="flex gap-2 pt-4">
-                      <div className="h-8 w-20 bg-gray-200 rounded-full animate-pulse"></div>
-                      <div className="h-8 w-24 bg-gray-200 rounded-full animate-pulse"></div>
-                      <div className="h-8 w-20 bg-gray-200 rounded-full animate-pulse"></div>
-                    </div>
-                    <div className="h-5 w-40 bg-gray-200 rounded animate-pulse mt-4"></div>
+                <div className="aspect-[16/10] bg-gray-200 animate-pulse"></div>
+                <div className="p-6">
+                  <div className="h-4 w-24 bg-gray-200 rounded animate-pulse mb-3"></div>
+                  <div className="h-6 w-2/3 bg-gray-200 rounded animate-pulse mb-4"></div>
+                  <div className="h-4 w-full bg-gray-200 rounded animate-pulse mb-2"></div>
+                  <div className="h-4 w-5/6 bg-gray-200 rounded animate-pulse mb-5"></div>
+                  <div className="flex gap-2 mb-5">
+                    <div className="h-8 w-16 bg-gray-200 rounded-full animate-pulse"></div>
+                    <div className="h-8 w-20 bg-gray-200 rounded-full animate-pulse"></div>
+                    <div className="h-8 w-16 bg-gray-200 rounded-full animate-pulse"></div>
                   </div>
+                  <div className="h-10 w-36 bg-gray-200 rounded-lg animate-pulse"></div>
                 </div>
               </div>
             ))}
@@ -154,24 +141,23 @@ const Projects: React.FC = () => {
     const err = error as { data?: { message?: string } };
 
     return (
-      <section id="work" className="relative py-24 px-6 bg-white overflow-hidden">
-        <div className="absolute top-40 right-0 w-96 h-96 bg-[#6A0DAD]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-40 left-0 w-96 h-96 bg-[#4B0082]/5 rounded-full blur-3xl"></div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <span className="text-[#6A0DAD] font-semibold text-sm uppercase tracking-wider mb-2 block">
-              Our Portfolio
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] bg-clip-text text-transparent">
-                Selected Work
+      <section id="our-work" className="py-24 bg-[#F8F8FC]">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+              <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[#6A0DAD]">
+                Our Portfolio
               </span>
+              <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+            </div>
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4B0082] mb-4">
+              Featured Projects
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] mx-auto mb-6 rounded-full"></div>
           </div>
 
-          <div className="text-center py-12 max-w-md mx-auto bg-[#F9F9F9] rounded-2xl shadow-sm">
+          <div className="text-center py-12 max-w-md mx-auto bg-white rounded-2xl border border-[#ECECEC] shadow-sm">
             <p className="text-[#4B0082] text-lg font-semibold mb-2">
               Unable to load projects
             </p>
@@ -185,88 +171,93 @@ const Projects: React.FC = () => {
   }
 
   return (
-    <section id="work" className="relative py-24 px-6 bg-white overflow-hidden">
-      <div className="absolute top-40 right-0 w-96 h-96 bg-[#6A0DAD]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-40 left-0 w-96 h-96 bg-[#4B0082]/5 rounded-full blur-3xl"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <span className="text-[#6A0DAD] font-semibold text-sm uppercase tracking-wider mb-2 block">
-            Our Portfolio
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] bg-clip-text text-transparent">
-              Selected Work
+    <section id="our-work" className="py-24 bg-[#F8F8FC]">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[#6A0DAD]">
+              Our Portfolio
             </span>
+            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
+          </div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4B0082] mb-4">
+            Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] mx-auto mb-6 rounded-full"></div>
-          <p className="text-lg md:text-xl text-[#6E6E6E] max-w-2xl mx-auto">
-            A glimpse into products we've designed and built.
+
+          <p className="text-[#6E6E6E] text-base md:text-lg max-w-2xl mx-auto">
+            A glimpse into products we’ve designed and built.
           </p>
         </div>
 
         {displayedProjects.length > 0 ? (
-          <div className="space-y-20">
-            {displayedProjects.map((project: Project, index: number) => {
-              const tags = getProjectTags(project);
-              const color =
-                project.color || gradientColors[index % gradientColors.length];
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {displayedProjects.map((project: Project, index: number) => {
+                const tags = getProjectTags(project);
 
-              return (
-                <div
-                  key={project._id || project.id || index}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${
-                    index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
-                  }`}
-                >
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                    <div className="relative group cursor-pointer">
-                      <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-                        <img
-                          src={getCloudinaryImageUrl(project.image, {
-                            width: 800,
-                            height: 600,
-                            quality: 'auto:good',
-                          })}
-                          alt={project.name || project.title || 'Project image'}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          loading="lazy"
-                          onError={(e) => {
-                            e.currentTarget.src = '/placeholder-project.jpg';
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#4B0082]/80 to-[#6A0DAD]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                          <span className="text-white font-semibold flex items-center gap-2 text-lg">
-                            View Website <FiExternalLink />
-                          </span>
-                        </div>
+                return (
+                  <div
+                    key={project._id || project.id || index}
+                    className="group bg-white rounded-2xl border border-[#ECECEC] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                  >
+                    {/* Image */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={getCloudinaryImageUrl(project.image, {
+                          width: 800,
+                          height: 600,
+                          quality: 'auto:good',
+                        })}
+                        alt={project.name || project.title || 'Project image'}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = '/placeholder-project.jpg';
+                        }}
+                      />
+
+                      <div className="absolute top-4 left-4">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-[#4B0082] text-white shadow-sm">
+                          {project.category || 'Project'}
+                        </span>
                       </div>
 
-                      <div
-                        className={`absolute -inset-4 bg-gradient-to-r ${color} rounded-full blur-xl opacity-20 -z-10 group-hover:opacity-30 transition-opacity duration-500`}
-                      ></div>
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 bg-[#4B0082]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                        >
+                          <span className="inline-flex items-center gap-2 text-white font-semibold">
+                            View Website <FiExternalLink />
+                          </span>
+                        </a>
+                      )}
                     </div>
-                  </div>
 
-                  <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                    <div className="space-y-4">
-                      <span className="text-[#6A0DAD] font-semibold text-sm uppercase tracking-wider">
-                        {project.category || 'Project'}
-                      </span>
-
-                      <h3 className="text-2xl md:text-3xl font-bold text-[#4B0082]">
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-[#2F2F2F] mb-3 group-hover:text-[#4B0082] transition-colors">
                         {project.name || project.title}
                       </h3>
 
-                      <p className="text-[#6E6E6E] text-lg leading-relaxed">
-                        {project.description}
+                      <p className="text-[#6E6E6E] text-sm md:text-base leading-relaxed mb-5">
+                        {project.description
+                          ? project.description.length > 110
+                            ? `${project.description.slice(0, 110)}...`
+                            : project.description
+                          : 'A modern digital project crafted with usability and performance in mind.'}
                       </p>
 
-                      <div className="flex flex-wrap gap-2 pt-4">
+                      <div className="flex flex-wrap gap-2 mb-6">
                         {tags.slice(0, 3).map((tag, tagIndex) => (
                           <span
                             key={tagIndex}
-                            className="px-3 py-1 bg-[#F2F2F2] text-[#6E6E6E] rounded-full text-sm font-medium"
+                            className="px-3 py-1 bg-[#F5F5F8] text-[#6E6E6E] rounded-full text-xs font-medium"
                           >
                             {tag}
                           </span>
@@ -277,38 +268,33 @@ const Projects: React.FC = () => {
                         href={project.link || '#'}
                         target={project.link ? '_blank' : undefined}
                         rel={project.link ? 'noopener noreferrer' : undefined}
-                        className="inline-flex items-center gap-2 text-[#6A0DAD] hover:text-[#4B0082] font-semibold transition-colors duration-300 group/link mt-4"
+                        className="inline-flex items-center gap-2 bg-[#F28C38] hover:bg-[#dd7c2d] text-white font-semibold px-5 py-3 rounded-lg transition-all duration-300"
                       >
                         View Project
-                        <FiArrowRight className="group-hover/link:translate-x-1 transition-transform" />
+                        <FiArrowRight className="transition-transform group-hover:translate-x-1" />
                       </a>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+
+            <div className="text-center mt-16">
+              <Link
+                to="/projects"
+                className="inline-flex items-center gap-2 bg-[#6A0DAD] hover:bg-[#4B0082] text-white font-semibold px-8 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                View Full Portfolio
+                <FiArrowRight />
+              </Link>
+            </div>
+          </>
         ) : (
-          <div className="text-center py-12 max-w-md mx-auto bg-[#F9F9F9] rounded-2xl shadow-sm">
+          <div className="text-center py-12 max-w-md mx-auto bg-white rounded-2xl border border-[#ECECEC] shadow-sm">
             <p className="text-[#4B0082] text-lg font-semibold mb-2">
               No projects to display
             </p>
             <p className="text-[#6E6E6E] text-sm">New projects coming soon</p>
-          </div>
-        )}
-
-        {displayedProjects.length > 0 && (
-          <div className="text-center mt-20">
-            <Link
-              to="/projects"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#6A0DAD] to-[#4B0082] text-white font-semibold rounded-lg text-lg overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                View Full Portfolio
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
           </div>
         )}
       </div>

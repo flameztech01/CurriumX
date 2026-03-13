@@ -7,7 +7,7 @@ import {
   FiLogOut,
 } from "react-icons/fi";
 
-const AdminSidebar: React.FC = () => {
+const SideBar: React.FC = () => {
   const navigate = useNavigate();
 
   const menu = [
@@ -79,4 +79,4 @@ const AdminSidebar: React.FC = () => {
   );
 };
 
-export default AdminSidebar;
+export default SideBar;

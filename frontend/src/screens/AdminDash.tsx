@@ -1,11 +1,11 @@
-import AdminSidebar from "../components/AdminSidebar";
+import SideBar from "../components/SideBar";
 import Dashboard from "../components/Dashboard";
 
 const AdminDash = () => {
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
-      <AdminSidebar />
+      <SideBar />
 
       {/* Dashboard Content */}
       <div className="flex-1 bg-[#F9F9F9]">

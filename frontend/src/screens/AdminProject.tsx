@@ -6,14 +6,14 @@ import {
   FiGithub,
   FiX,
 } from 'react-icons/fi';
-import AdminSidebar from '../components/AdminSidebar';
+import SideBar from '../components/SideBar';
 import {
   useGetAdminProjectsQuery,
   useUploadProjectMutation,
   useDeleteProjectMutation,
 } from '../slices/adminApiSlice';
 
-const AdminProjects: React.FC = () => {
+const AdminProject: React.FC = () => {
   const { data: projects = [], isLoading, refetch } = useGetAdminProjectsQuery({});
   const [uploadProject, { isLoading: uploading }] = useUploadProjectMutation();
   const [deleteProject, { isLoading: deleting }] = useDeleteProjectMutation();
@@ -132,7 +132,7 @@ const AdminProjects: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-[#F9F9F9]">
-      <AdminSidebar />
+      <SideBar />
 
       <div className="flex-1 p-8 overflow-y-auto">
         {/* Header */}
@@ -472,4 +472,4 @@ const AdminProjects: React.FC = () => {
   );
 };
 
-export default AdminProjects;
+export default AdminProject;

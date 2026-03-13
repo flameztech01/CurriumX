@@ -18,7 +18,7 @@ import Homepage from './screens/Homepage.tsx'
 import Projects from './screens/Projects.tsx'
 
 import AdminDash from './screens/AdminDash.tsx'
-import AdminProjects from './components/AdminProjects.tsx'
+import AdminProject from './screens/AdminProject.tsx'
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {index: true, element: <Homepage />},
       {path: 'projects', element: <Projects />},
       {path: 'admin/dashboard', element: <AdminDash />},
-      {path: 'admin/projects', element: <AdminProjects />}
+      {path: 'admin/projects', element: <AdminProject />}
 
     ]
   }

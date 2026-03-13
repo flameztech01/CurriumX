@@ -85,7 +85,7 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-5">
+            {/* <div className="grid grid-cols-2 gap-5">
               <div className="bg-[#F8F8FC] border border-[#EEEEF5] rounded-2xl p-6 text-center">
                 <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">10+</h4>
                 <p className="text-sm text-[#6E6E6E] mt-2">Projects Completed</p>
@@ -105,7 +105,7 @@ const About: React.FC = () => {
                 <h4 className="text-3xl md:text-4xl font-bold text-[#4B0082]">100%</h4>
                 <p className="text-sm text-[#6E6E6E] mt-2">Focused on Quality</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

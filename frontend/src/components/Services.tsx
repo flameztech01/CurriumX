@@ -112,7 +112,7 @@ const Services: React.FC = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 bg-[#F8F8FC] rounded-3xl border border-[#EEEEF5] px-6 md:px-10 py-10">
+        {/* <div className="mt-20 bg-[#F8F8FC] rounded-3xl border border-[#EEEEF5] px-6 md:px-10 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-[#4B0082]">50+</h3>
@@ -131,7 +131,7 @@ const Services: React.FC = () => {
               <p className="text-sm text-[#6E6E6E] mt-2">Team Members</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>

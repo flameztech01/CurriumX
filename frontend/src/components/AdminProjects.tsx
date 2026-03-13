@@ -6,7 +6,7 @@ import {
   FiGithub,
   FiX,
 } from 'react-icons/fi';
-import AdminSidebar from '../components/adminSidebar';
+import AdminSidebar from '../components/AdminSidebar';
 import {
   useGetAdminProjectsQuery,
   useUploadProjectMutation,

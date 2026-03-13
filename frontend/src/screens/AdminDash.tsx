@@ -1,4 +1,4 @@
-import AdminSidebar from "../components/adminSidebar";
+import AdminSidebar from "../components/AdminSidebar";
 import Dashboard from "../components/Dashboard";
 
 const AdminDash = () => {

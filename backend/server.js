@@ -19,7 +19,7 @@ app.use(cors({
         'http://localhost:3000',
         'http://localhost:4000',
         'https://njoku-samuel-portfolio.onrender.com',
-        'https://www.flameztech.online',
+        'https://curriumx.online',
         'https://flameztech.online',
         'https://currium-x.vercel.app'
     ],

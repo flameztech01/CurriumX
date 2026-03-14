@@ -1,77 +1,90 @@
-import { FiSend, FiEye } from 'react-icons/fi';
+import { FiSend, FiEye } from "react-icons/fi";
 
 const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-16 sm:pt-20"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20"
     >
-      {/* Background Image */}
+      {/* Background */}
       <div className="absolute inset-0">
         <img
           src="/image1.jpg"
           alt="Hero background"
           className="w-full h-full object-cover"
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0b1e]/90 via-[#1a1b3a]/80 to-[#2a1b4a]/90"></div>
+
+        {/* Exact dark overlay style like template */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1117]/95 via-[#0f1117]/80 to-[#0f1117]/60"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
-        {/* Badge */}
-        <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur border border-white/20">
-          <span className="text-white text-xs sm:text-sm tracking-wider">
-            POWERED BY INNOVATION
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="max-w-3xl">
+
+          {/* Label */}
+          <span className="text-sm tracking-widest text-gray-300 uppercase mb-4 block">
+            IT SOFTWARE SOLUTION
           </span>
+
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6">
+            IT Software
+            <br />
+            Tech & Solutions
+          </h1>
+
+          {/* Subtext */}
+          <p className="text-gray-300 text-lg max-w-xl mb-10">
+            CurriumX builds powerful digital systems, websites and applications
+            that help businesses scale, innovate and dominate online.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-[#6A0DAD] hover:bg-[#4B0082] text-white font-semibold px-8 py-4 rounded shadow-lg transition"
+            >
+              <FiSend />
+              Start Project
+            </a>
+
+            <a
+              href="#our-work"
+              className="inline-flex items-center gap-2 border border-white/20 text-white px-8 py-4 rounded hover:bg-white/10 transition"
+            >
+              <FiEye />
+              View Portfolio
+            </a>
+
+          </div>
         </div>
 
-        {/* Headline */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6">
-          We Build{" "}
-          <span className="bg-gradient-to-r from-[#C0C0C0] to-white bg-clip-text text-transparent block sm:inline">
-            Digital Products
-          </span>
-          <br className="hidden sm:block" />
-          That{" "}
-          <span className="bg-gradient-to-r from-[#6A0DAD] to-[#4B0082] bg-clip-text text-transparent block sm:inline">
-            Move Ideas Forward
-          </span>
-        </h1>
+        {/* Stats cards like the design */}
+        <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 w-full max-w-md lg:max-w-xl">
+          {/* <div className="bg-white shadow-xl rounded flex overflow-hidden">
 
-        {/* Sub text */}
-        <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 sm:mb-10 px-2 sm:px-4">
-          Websites. Apps. Product Design. Branding.  
-          We turn concepts into scalable, user-focused digital experiences.
-        </p>
+            <div className="flex-1 text-center py-6 px-4">
+              <h3 className="text-2xl font-bold text-[#111]">99.0K</h3>
+              <p className="text-gray-500 text-sm">Total Customers</p>
+            </div>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
-          <a
-            href="#contact"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#6A0DAD] to-[#4B0082] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all text-sm sm:text-base"
-          >
-            <FiSend className="text-base sm:text-lg" />
-            Start a Project
-          </a>
+            <div className="w-[1px] bg-gray-200"></div>
 
-          <a
-            href="#our-work"
-            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur border border-white/20 text-white font-semibold rounded-lg hover:bg-white/20 hover:-translate-y-1 transition-all text-sm sm:text-base"
-          >
-            <FiEye className="text-base sm:text-lg" />
-            View Our Work
-          </a>
+            <div className="flex-1 text-center py-6 px-4">
+              <h3 className="text-2xl font-bold text-[#111]">100%</h3>
+              <p className="text-gray-500 text-sm">Client Satisfaction</p>
+            </div>
+
+          </div> */}
         </div>
 
-        {/* Trust text */}
-        <div className="mt-8 sm:mt-10 md:mt-14 text-gray-400 text-xs sm:text-sm tracking-wide px-4">
-          Helping startups, brands and creators build strong digital presence.
-        </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-[#0a0b1e] to-transparent"></div>
+      {/* bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f1117] to-transparent"></div>
     </section>
   );
 };

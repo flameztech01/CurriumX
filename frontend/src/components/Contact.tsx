@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   FiSend,
   FiMail,
@@ -6,19 +6,19 @@ import {
   FiPhone,
   FiCheckCircle,
   FiXCircle,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    projectType: '',
-    message: '',
+    name: "",
+    email: "",
+    projectType: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
 
     if (submitStatus) {
       setSubmitStatus(null);
-      setErrorMessage('');
+      setErrorMessage("");
     }
   };
 
@@ -36,24 +36,24 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    setErrorMessage('');
+    setErrorMessage("");
 
     try {
-      const response = await fetch('https://formspree.io/f/xqedyeka', {
-        method: 'POST',
+      const response = await fetch("https://formspree.io/f/xqedyeka", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         setFormData({
-          name: '',
-          email: '',
-          projectType: '',
-          message: '',
+          name: "",
+          email: "",
+          projectType: "",
+          message: "",
         });
 
         setTimeout(() => {
@@ -61,94 +61,104 @@ const Contact: React.FC = () => {
         }, 5000);
       } else {
         const data = await response.json();
-        setSubmitStatus('error');
-        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        setSubmitStatus("error");
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
       }
     } catch {
-      setSubmitStatus('error');
-      setErrorMessage('Network error. Please check your connection and try again.');
+      setSubmitStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const projectTypes = [
-    'Web Development',
-    'Mobile App Development',
-    'UI/UX Design',
-    'Brand Identity',
-    'Technical Consulting',
-    'Other',
+    "Web Development",
+    "Mobile App Development",
+    "UI/UX Design",
+    "Brand Identity",
+    "Technical Consulting",
+    "Other",
   ];
 
   return (
-    <section id="contact" className="relative py-24 bg-[#F8F8FC] overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#6A0DAD]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#4B0082]/5 rounded-full blur-3xl"></div>
+    <section
+      id="contact"
+      className="relative py-24 md:py-28 bg-[#11131A] overflow-hidden"
+    >
+      {/* subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.04]">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0)",
+            backgroundSize: "34px 34px",
+          }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+      {/* soft glow */}
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#6A0DAD]/10 blur-3xl rounded-full" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-[#6A0DAD]">
-              Contact Us
-            </span>
-            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
-          </div>
+        <div className="text-center mb-14 md:mb-16">
+          <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gray-400 block mb-4">
+            Contact Us
+          </span>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#4B0082] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Let&apos;s Build Something Exceptional
           </h2>
 
-          <p className="text-[#6E6E6E] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Have an idea, project, or business need in mind? Let&apos;s talk about how
             CurriumX can help bring it to life.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-7 items-start">
           {/* Left side */}
           <div className="space-y-6">
-            <div className="bg-white border border-[#ECECEC] rounded-3xl p-8 shadow-sm">
-              <h3 className="text-2xl md:text-3xl font-bold text-[#4B0082] mb-4">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Start Your Project With Us
               </h3>
-              <p className="text-[#6E6E6E] text-base md:text-lg leading-relaxed">
+              <p className="text-gray-400 text-base md:text-lg leading-relaxed">
                 We work with brands, businesses, and individuals to create modern digital
                 solutions that are clean, functional, and built for growth.
               </p>
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-4 p-5 bg-white border border-[#ECECEC] rounded-2xl shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6A0DAD] to-[#4B0082] flex items-center justify-center text-white shrink-0">
+              <div className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-[#1B1E28] border border-white/10 flex items-center justify-center text-[#C0C0C0] shrink-0">
                   <FiMail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E6E] mb-1">Email</p>
+                  <p className="text-sm text-gray-400 mb-1">Email</p>
                   <a
                     href="mailto:curriumxtech@gmail.com"
-                    className="text-[#4B0082] font-semibold hover:text-[#6A0DAD] transition-colors break-all"
+                    className="text-white font-semibold hover:text-[#C0C0C0] transition-colors break-all"
                   >
                     curriumxtech@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-5 bg-white border border-[#ECECEC] rounded-2xl shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6A0DAD] to-[#4B0082] flex items-center justify-center text-white shrink-0">
+              <div className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-[#1B1E28] border border-white/10 flex items-center justify-center text-[#C0C0C0] shrink-0">
                   <FiPhone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E6E] mb-1">Phone / WhatsApp</p>
+                  <p className="text-sm text-gray-400 mb-1">Phone / WhatsApp</p>
                   <div className="flex flex-col gap-1">
                     <a
                       href="https://wa.me/2347025693976"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#4B0082] font-semibold hover:text-[#6A0DAD] transition-colors"
+                      className="text-white font-semibold hover:text-[#C0C0C0] transition-colors"
                     >
                       07025693976
                     </a>
@@ -156,7 +166,7 @@ const Contact: React.FC = () => {
                       href="https://wa.me/2349063229518"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#4B0082] font-semibold hover:text-[#6A0DAD] transition-colors"
+                      className="text-white font-semibold hover:text-[#C0C0C0] transition-colors"
                     >
                       09063229518
                     </a>
@@ -164,59 +174,60 @@ const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-5 bg-white border border-[#ECECEC] rounded-2xl shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6A0DAD] to-[#4B0082] flex items-center justify-center text-white shrink-0">
+              <div className="flex items-start gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-[#1B1E28] border border-white/10 flex items-center justify-center text-[#C0C0C0] shrink-0">
                   <FiMapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E6E] mb-1">Location</p>
-                  <p className="text-[#4B0082] font-semibold">
+                  <p className="text-sm text-gray-400 mb-1">Location</p>
+                  <p className="text-white font-semibold">
                     Port Harcourt, Rivers State, Nigeria
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] rounded-3xl p-8 text-white">
-              <p className="text-xl md:text-2xl font-light italic text-center">
+            <div className="relative bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm overflow-hidden">
+              <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#6A0DAD] via-[#7b2be0] to-[#C0C0C0]" />
+              <p className="text-xl md:text-2xl font-light italic text-white text-center leading-relaxed">
                 “Great digital products start with a simple conversation.”
               </p>
             </div>
           </div>
 
           {/* Right side */}
-          <div className="bg-white rounded-3xl shadow-sm border border-[#ECECEC] p-8 md:p-10">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-sm">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {submitStatus === 'success' && (
-                <div className="flex items-start gap-3 p-4 bg-green-50 border border-green-200 rounded-xl">
-                  <FiCheckCircle className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
+              {submitStatus === "success" && (
+                <div className="flex items-start gap-3 p-4 bg-green-500/10 border border-green-400/20 rounded-xl">
+                  <FiCheckCircle className="w-5 h-5 text-green-400 mt-0.5 shrink-0" />
                   <div className="flex-1">
-                    <p className="text-green-700 font-semibold">Message sent successfully</p>
-                    <p className="text-green-600 text-sm">
+                    <p className="text-green-300 font-semibold">Message sent successfully</p>
+                    <p className="text-green-200/80 text-sm">
                       We&apos;ll get back to you as soon as possible.
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setSubmitStatus(null)}
-                    className="text-green-600 hover:text-green-700"
+                    className="text-green-300 hover:text-green-200"
                   >
                     <FiXCircle className="w-4 h-4" />
                   </button>
                 </div>
               )}
 
-              {submitStatus === 'error' && (
-                <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-xl">
-                  <FiXCircle className="w-5 h-5 text-red-600 mt-0.5 shrink-0" />
+              {submitStatus === "error" && (
+                <div className="flex items-start gap-3 p-4 bg-red-500/10 border border-red-400/20 rounded-xl">
+                  <FiXCircle className="w-5 h-5 text-red-400 mt-0.5 shrink-0" />
                   <div className="flex-1">
-                    <p className="text-red-700 font-semibold">Failed to send message</p>
-                    <p className="text-red-600 text-sm">{errorMessage}</p>
+                    <p className="text-red-300 font-semibold">Failed to send message</p>
+                    <p className="text-red-200/80 text-sm">{errorMessage}</p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setSubmitStatus(null)}
-                    className="text-red-600 hover:text-red-700"
+                    className="text-red-300 hover:text-red-200"
                   >
                     <FiXCircle className="w-4 h-4" />
                   </button>
@@ -224,7 +235,7 @@ const Contact: React.FC = () => {
               )}
 
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-[#4B0082] mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                   Name
                 </label>
                 <input
@@ -235,12 +246,12 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="w-full px-4 py-3 bg-[#F9F9F9] border border-[#EAEAEA] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/20 focus:border-[#6A0DAD] transition-all text-[#333]"
+                  className="w-full px-4 py-3 bg-[#1B1E28] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/30 focus:border-[#6A0DAD] transition-all text-white placeholder:text-gray-500"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#4B0082] mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                   Email
                 </label>
                 <input
@@ -251,14 +262,14 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="your@email.com"
-                  className="w-full px-4 py-3 bg-[#F9F9F9] border border-[#EAEAEA] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/20 focus:border-[#6A0DAD] transition-all text-[#333]"
+                  className="w-full px-4 py-3 bg-[#1B1E28] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/30 focus:border-[#6A0DAD] transition-all text-white placeholder:text-gray-500"
                 />
               </div>
 
               <div className="relative">
                 <label
                   htmlFor="projectType"
-                  className="block text-sm font-medium text-[#4B0082] mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Project Type
                 </label>
@@ -268,11 +279,13 @@ const Contact: React.FC = () => {
                   value={formData.projectType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-[#F9F9F9] border border-[#EAEAEA] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/20 focus:border-[#6A0DAD] transition-all text-[#333] appearance-none cursor-pointer"
+                  className="w-full px-4 py-3 bg-[#1B1E28] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/30 focus:border-[#6A0DAD] transition-all text-white appearance-none cursor-pointer"
                 >
-                  <option value="">Select a project type</option>
+                  <option value="" className="text-gray-700">
+                    Select a project type
+                  </option>
                   {projectTypes.map((type) => (
-                    <option key={type} value={type}>
+                    <option key={type} value={type} className="text-gray-800">
                       {type}
                     </option>
                   ))}
@@ -280,7 +293,7 @@ const Contact: React.FC = () => {
 
                 <div className="absolute right-4 top-[calc(50%+12px)] -translate-y-1/2 pointer-events-none">
                   <svg
-                    className="w-4 h-4 text-[#6E6E6E]"
+                    className="w-4 h-4 text-gray-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -298,7 +311,7 @@ const Contact: React.FC = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-[#4B0082] mb-2"
+                  className="block text-sm font-medium text-white mb-2"
                 >
                   Message
                 </label>
@@ -310,14 +323,14 @@ const Contact: React.FC = () => {
                   required
                   rows={5}
                   placeholder="Tell us about your project..."
-                  className="w-full px-4 py-3 bg-[#F9F9F9] border border-[#EAEAEA] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/20 focus:border-[#6A0DAD] transition-all text-[#333] resize-none"
+                  className="w-full px-4 py-3 bg-[#1B1E28] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#6A0DAD]/30 focus:border-[#6A0DAD] transition-all text-white placeholder:text-gray-500 resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full group inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#F28C38] hover:bg-[#dd7c2d] text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full group inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#6A0DAD] hover:bg-[#4B0082] text-white font-semibold rounded-xl transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -352,11 +365,11 @@ const Contact: React.FC = () => {
               </button>
 
               <div className="text-center pt-2">
-                <p className="text-sm text-[#6E6E6E]">
-                  Or send an email directly to{' '}
+                <p className="text-sm text-gray-400">
+                  Or send an email directly to{" "}
                   <a
                     href="mailto:curriumxtech@gmail.com"
-                    className="text-[#6A0DAD] font-medium hover:text-[#4B0082] transition-colors"
+                    className="text-[#C0C0C0] font-medium hover:text-white transition-colors"
                   >
                     curriumxtech@gmail.com
                   </a>
@@ -367,7 +380,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="mt-14 text-center">
-          <p className="inline-flex items-center gap-2 text-sm text-[#8A8A8A]">
+          <p className="inline-flex items-center gap-2 text-sm text-gray-400">
             <span>✨</span>
             <span>We typically respond within 24 hours</span>
             <span>✨</span>

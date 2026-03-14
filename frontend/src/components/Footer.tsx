@@ -1,49 +1,48 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 import {
   FiLinkedin,
   FiTwitter,
   FiInstagram,
   FiHeart,
   FiX,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 
-type ModalType = 'privacy' | 'terms' | null;
+type ModalType = "privacy" | "terms" | null;
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [activeModal, setActiveModal] = useState<ModalType>(null);
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Our Work', href: '#our-work' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "Our Work", href: "#our-work" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
-  // Easy-to-edit mock data for socials
   const socialLinks = [
     {
-      name: 'LinkedIn',
-      href: 'https://linkedin.com/company/curriumx',
+      name: "LinkedIn",
+      href: "https://linkedin.com/company/curriumx",
       icon: <FiLinkedin className="w-5 h-5" />,
     },
     {
-      name: 'Twitter',
-      href: 'https://twitter.com/curriumx',
+      name: "Twitter",
+      href: "https://twitter.com/curriumx",
       icon: <FiTwitter className="w-5 h-5" />,
     },
     {
-      name: 'Instagram',
-      href: 'https://instagram.com/curriumx',
+      name: "Instagram",
+      href: "https://instagram.com/curriumx",
       icon: <FiInstagram className="w-5 h-5" />,
     },
   ];
 
   const modalContent = useMemo(() => {
-    if (activeModal === 'privacy') {
+    if (activeModal === "privacy") {
       return {
-        title: 'Privacy Policy',
+        title: "Privacy Policy",
         content: (
           <>
             <p className="text-[#5F5F5F] leading-relaxed">
@@ -80,9 +79,9 @@ const Footer: React.FC = () => {
               </div>
 
               <div>
-                <h4 className="text-[#4B0082] font-semibold mb-2">Third-Party Services</h4>
+                <h4 className="text-[#4B0082] font-semibold mb-2">Third Party Services</h4>
                 <p className="leading-relaxed">
-                  Some features of this website may rely on trusted third-party services
+                  Some features of this website may rely on trusted third party services
                   such as form handling, hosting, analytics, or media delivery tools.
                   These services may process data as required to make the website function properly.
                 </p>
@@ -99,7 +98,7 @@ const Footer: React.FC = () => {
               <div>
                 <h4 className="text-[#4B0082] font-semibold mb-2">Contact</h4>
                 <p className="leading-relaxed">
-                  For privacy-related questions, please contact us at{' '}
+                  For privacy related questions, please contact us at{" "}
                   <a
                     href="mailto:curriumxtech@gmail.com"
                     className="text-[#6A0DAD] font-medium hover:text-[#4B0082]"
@@ -114,9 +113,9 @@ const Footer: React.FC = () => {
       };
     }
 
-    if (activeModal === 'terms') {
+    if (activeModal === "terms") {
       return {
-        title: 'Terms of Service',
+        title: "Terms of Service",
         content: (
           <>
             <p className="text-[#5F5F5F] leading-relaxed">
@@ -162,7 +161,7 @@ const Footer: React.FC = () => {
                 <h4 className="text-[#4B0082] font-semibold mb-2">Limitation of Liability</h4>
                 <p className="leading-relaxed">
                   While we strive to keep website information accurate and up to date, CurriumX
-                  does not guarantee that all content will always be complete, error-free, or
+                  does not guarantee that all content will always be complete, error free, or
                   uninterrupted at all times.
                 </p>
               </div>
@@ -185,118 +184,131 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <footer className="relative bg-gradient-to-br from-[#4B0082] via-[#5A189A] to-[#6A0DAD] text-white overflow-hidden">
+      <footer className="relative bg-[#0F1117] text-white overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
-          <div className="absolute top-16 left-10 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-              backgroundSize: '38px 38px',
-            }}
-          ></div>
+          <div className="absolute inset-0 opacity-[0.04]">
+            <div
+              className="w-full h-full"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 2px 2px, white 1px, transparent 0)",
+                backgroundSize: "36px 36px",
+              }}
+            />
+          </div>
+
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[420px] h-[420px] bg-[#6A0DAD]/10 blur-3xl rounded-full" />
+          <div className="absolute bottom-0 right-0 w-[280px] h-[280px] bg-white/5 blur-3xl rounded-full" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
-            {/* Brand */}
-            <div className="md:col-span-5">
-              <div className="mb-4">
-                <h2 className="text-3xl font-bold tracking-tight">
-                  <span className="text-white">Currium</span>
-                  <span className="text-[#F28C38]">X</span>
-                </h2>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-16 md:pt-20">
+          {/* Top card */}
+          <div className="bg-white rounded-[28px] border border-[#ECECEC] shadow-[0_20px_60px_rgba(0,0,0,0.18)] overflow-hidden">
+            <div className="h-1.5 w-full bg-gradient-to-r from-[#6A0DAD] via-[#7b2be0] to-[#C0C0C0]" />
 
-              <p className="text-white/80 text-base md:text-lg max-w-md leading-relaxed">
-                Building digital products with clarity, precision, and long-term value.
-              </p>
+            <div className="px-6 md:px-10 py-10 md:py-12">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+                {/* Brand */}
+                <div className="md:col-span-5">
+                  <div className="mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                      <span className="text-[#4B0082]">Currium</span>
+                      <span className="text-[#C0C0C0]">X</span>
+                    </h2>
+                  </div>
 
-              <div className="flex items-center gap-2 text-sm text-white/70 pt-5">
-                <span>Made with</span>
-                <FiHeart className="text-[#F28C38]" />
-                <span>for the digital future</span>
-              </div>
-            </div>
+                  <p className="text-[#5F5F5F] text-base md:text-lg max-w-md leading-relaxed">
+                    Building digital products with clarity, precision, and long term value.
+                  </p>
 
-            {/* Quick links */}
-            <div className="md:col-span-3">
-              <h3 className="text-lg font-semibold mb-5 text-[#F28C38]">Quick Links</h3>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
+                  <div className="flex items-center gap-2 text-sm text-[#6E6E6E] pt-5">
+                    <span>Made with</span>
+                    <FiHeart className="text-[#6A0DAD]" />
+                    <span>for the digital future</span>
+                  </div>
+                </div>
+
+                {/* Quick links */}
+                <div className="md:col-span-3">
+                  <h3 className="text-lg font-semibold mb-5 text-[#4B0082]">Quick Links</h3>
+                  <ul className="space-y-3">
+                    {quickLinks.map((link) => (
+                      <li key={link.name}>
+                        <a
+                          href={link.href}
+                          className="text-[#5F5F5F] hover:text-[#6A0DAD] transition-colors duration-300"
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Social + contact */}
+                <div className="md:col-span-4">
+                  <h3 className="text-lg font-semibold mb-5 text-[#4B0082]">Connect With Us</h3>
+
+                  <div className="flex gap-4 mb-6">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        className="group"
+                      >
+                        <div className="w-12 h-12 bg-[#11131A] rounded-xl border border-white/10 flex items-center justify-center text-[#C0C0C0] hover:bg-gradient-to-br hover:from-[#6A0DAD] hover:to-[#4B0082] hover:text-white transition-all duration-300 hover:-translate-y-1">
+                          {social.icon}
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="space-y-2 text-sm text-[#6E6E6E]">
+                    <p>Have a project in mind?</p>
                     <a
-                      href={link.href}
-                      className="text-white/80 hover:text-white transition-colors duration-300"
+                      href="mailto:curriumxtech@gmail.com"
+                      className="text-[#4B0082] hover:text-[#6A0DAD] transition-colors duration-300 font-medium"
                     >
-                      {link.name}
+                      curriumxtech@gmail.com
                     </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Social + contact */}
-            <div className="md:col-span-4">
-              <h3 className="text-lg font-semibold mb-5 text-[#F28C38]">Connect With Us</h3>
-
-              <div className="flex gap-4 mb-6">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.name}
-                    className="group"
-                  >
-                    <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:-translate-y-1">
-                      {social.icon}
-                    </div>
-                  </a>
-                ))}
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-2 text-sm text-white/75">
-                <p>Have a project in mind?</p>
-                <a
-                  href="mailto:curriumxtech@gmail.com"
-                  className="text-white hover:text-[#F28C38] transition-colors duration-300 font-medium"
-                >
-                  curriumxtech@gmail.com
-                </a>
+              {/* Bottom */}
+              <div className="mt-12 pt-7 border-t border-[#EFEFEF]">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                  <p className="text-sm text-[#6E6E6E]">
+                    © {currentYear} CurriumX. All rights reserved.
+                  </p>
+
+                  <div className="flex gap-6 text-sm">
+                    <button
+                      type="button"
+                      onClick={() => setActiveModal("privacy")}
+                      className="text-[#6E6E6E] hover:text-[#6A0DAD] transition-colors duration-300"
+                    >
+                      Privacy Policy
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveModal("terms")}
+                      className="text-[#6E6E6E] hover:text-[#6A0DAD] transition-colors duration-300"
+                    >
+                      Terms of Service
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom */}
-          <div className="mt-16 pt-8 border-t border-white/20">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-white/75">
-                © {currentYear} CurriumX. All rights reserved.
-              </p>
-
-              <div className="flex gap-6 text-sm">
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('privacy')}
-                  className="text-white/75 hover:text-white transition-colors duration-300"
-                >
-                  Privacy Policy
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveModal('terms')}
-                  className="text-white/75 hover:text-white transition-colors duration-300"
-                >
-                  Terms of Service
-                </button>
-              </div>
-            </div>
-          </div>
+          {/* tiny bottom spacing */}
+          <div className="h-10 md:h-12" />
         </div>
       </footer>
 
@@ -309,6 +321,8 @@ const Footer: React.FC = () => {
           ></div>
 
           <div className="relative z-10 w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-[#ECECEC] overflow-hidden">
+            <div className="h-1.5 w-full bg-gradient-to-r from-[#6A0DAD] via-[#7b2be0] to-[#C0C0C0]" />
+
             <div className="flex items-center justify-between px-6 md:px-8 py-5 border-b border-[#EFEFEF]">
               <h3 className="text-2xl font-bold text-[#4B0082]">{modalContent.title}</h3>
               <button

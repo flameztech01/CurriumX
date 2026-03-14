@@ -1,214 +1,200 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState<boolean>(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [activeSection, setActiveSection] = useState<string>('home');
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = (): void => {
-      setScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
 
-      const sections = ['home', 'services', 'our-work', 'about', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ["home", "services", "our-work", "about", "contact"];
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
+        const el = document.getElementById(section);
+        if (!el) continue;
+
+        const { offsetTop, offsetHeight } = el;
+
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          setActiveSection(section);
+          break;
         }
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string): void => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+    if (!el) return;
 
-      setMobileMenuOpen(false);
-    }
+    const offset = 85;
+
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+
+    setMobileMenuOpen(false);
   };
 
   const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'Services', id: 'services' },
-    { name: 'Our Work', id: 'our-work' },
-    { name: 'About', id: 'about' },
-    { name: 'Contact', id: 'contact' },
+    { name: "Home", id: "home" },
+    { name: "Services", id: "services" },
+    { name: "Our Work", id: "our-work" },
+    { name: "About", id: "about" },
+    { name: "Contact", id: "contact" },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top bar - Hidden on mobile, visible on large screens */}
-      <div className="hidden lg:block bg-[#4B0082] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between text-sm">
-          <div className="flex items-center gap-4 lg:gap-6">
-            <span className="text-xs lg:text-sm">Creative Digital Solutions</span>
-            <span className="text-white/70 hidden sm:inline">|</span>
-            <span className="text-xs lg:text-sm hidden sm:inline">Branding • Web Development • Design</span>
-          </div>
+
+      {/* Top Bar */}
+      <div className="hidden lg:block bg-[#1E1B2E] text-white border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 h-11 flex items-center justify-between text-sm">
+
+          <span className="text-gray-300">
+            Powering Possibilities Through Technology
+          </span>
+
           <button
-            onClick={() => scrollToSection('contact')}
-            className="text-white/90 hover:text-white transition-colors text-xs lg:text-sm whitespace-nowrap"
+            onClick={() => scrollToSection("contact")}
+            className="text-gray-300 hover:text-white transition"
           >
-            Let’s Work Together
+            Let’s Talk
           </button>
+
         </div>
       </div>
 
-      {/* Main navbar */}
+      {/* Main Navbar */}
+
       <nav
         className={`transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md'
-            : 'bg-white shadow-sm'
+            ? "bg-white/95 backdrop-blur shadow-lg"
+            : "bg-white"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[70px] sm:h-[76px] lg:h-[82px]">
-            {/* Logo */}
-            <button
-              onClick={() => scrollToSection('home')}
-              className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 focus:outline-none"
-            >
-              <div className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl bg-gradient-to-br from-[#4B0082] to-[#6A0DAD] flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-base sm:text-lg">C</span>
-              </div>
+        <div className="max-w-7xl mx-auto px-6">
 
-              <div className="text-left leading-tight">
-                <h1 className="text-lg sm:text-xl lg:text-2xl font-extrabold tracking-tight">
-                  <span className="text-[#4B0082]">Currium</span>
-                  <span className="text-[#6A0DAD]">X</span>
+          <div className="flex items-center justify-between h-[80px]">
+
+            {/* Logo */}
+
+            <button
+              onClick={() => scrollToSection("home")}
+              className="flex items-center gap-3"
+            >
+              <img
+                src="/logo.png"
+                className="h-10"
+                alt="CurriumX"
+              />
+
+              <div className="leading-tight">
+                <h1 className="text-xl font-bold">
+                  <span className="text-[#5B21B6]">Currium</span>
+                  <span className="text-gray-400">X</span>
                 </h1>
-                <p className="text-[8px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-gray-400">
+
+                <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400">
                   Digital Agency
                 </p>
               </div>
             </button>
 
-            {/* Desktop Nav - Hidden on mobile/tablet, visible on desktop */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {/* Desktop Menu */}
+
+            <div className="hidden lg:flex items-center gap-2">
+
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative px-3 xl:px-4 py-2 rounded-full font-medium text-sm transition-all duration-300 ${
+                  className={`relative px-4 py-2 font-medium transition ${
                     activeSection === item.id
-                      ? 'text-[#6A0DAD] bg-[#F5EEFF]'
-                      : 'text-[#444] hover:text-[#6A0DAD] hover:bg-[#F8F5FC]'
+                      ? "text-[#5B21B6]"
+                      : "text-gray-700 hover:text-[#5B21B6]"
                   }`}
                 >
                   {item.name}
+
+                  <span
+                    className={`absolute left-0 bottom-0 h-[2px] bg-[#5B21B6] transition-all ${
+                      activeSection === item.id
+                        ? "w-full"
+                        : "w-0"
+                    }`}
+                  />
                 </button>
               ))}
+
             </div>
 
-            {/* CTA + Mobile Button */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* Desktop CTA - Hidden on mobile, visible on tablet and up */}
+            {/* CTA */}
+
+            <div className="flex items-center gap-3">
+
               <button
-                onClick={() => scrollToSection('contact')}
-                className="hidden sm:inline-flex items-center justify-center bg-[#F28C38] hover:bg-[#dd7c2d] text-white font-semibold px-4 lg:px-6 py-2 lg:py-3 rounded-lg lg:rounded-xl transition-all duration-300 shadow-md hover:shadow-lg text-sm lg:text-base whitespace-nowrap"
+                onClick={() => scrollToSection("contact")}
+                className="hidden sm:inline-flex items-center justify-center bg-[#5B21B6] hover:bg-[#4B0082] text-white font-semibold px-6 py-3 transition shadow"
               >
-                Start a Project
+                Start Project
               </button>
 
-              {/* Mobile Menu Button - Visible on mobile/tablet, hidden on desktop */}
+              {/* Mobile Button */}
+
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-gray-200 text-[#4B0082] hover:bg-[#F8F5FC] transition-colors"
-                aria-label="Toggle menu"
+                className="lg:hidden p-2 border rounded-md"
               >
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {mobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
+                ☰
               </button>
+
             </div>
+
           </div>
 
-          {/* Mobile Menu - Visible on mobile/tablet, hidden on desktop */}
+          {/* Mobile Menu */}
+
           {mobileMenuOpen && (
-            <div className="lg:hidden pb-4 sm:pb-5">
-              <div className="bg-white border border-gray-100 rounded-xl sm:rounded-2xl shadow-xl overflow-hidden">
-                <div className="px-4 py-2.5 sm:py-3 border-b border-gray-100 bg-[#FAF7FF]">
-                  <p className="text-sm font-semibold text-[#4B0082]">
-                    CurriumX Menu
-                  </p>
-                </div>
+            <div className="lg:hidden pb-4">
 
-                <div className="flex flex-col">
-                  {navItems.map((item, index) => (
-                    <button
-                      key={item.id}
-                      onClick={() => scrollToSection(item.id)}
-                      className={`text-left px-4 sm:px-5 py-3.5 sm:py-4 font-medium transition-colors text-sm sm:text-base ${
-                        activeSection === item.id
-                          ? 'text-[#6A0DAD] bg-[#F5EEFF]'
-                          : 'text-[#444] hover:bg-[#F8F5FC] hover:text-[#6A0DAD]'
-                      } ${
-                        index !== navItems.length - 1
-                          ? 'border-b border-gray-100'
-                          : ''
-                      }`}
-                    >
-                      {item.name}
-                    </button>
-                  ))}
+              <div className="border rounded-lg shadow-lg overflow-hidden">
 
-                  {/* Mobile CTA - Only shown in mobile menu */}
-                  <div className="p-4 bg-white">
-                    <button
-                      onClick={() => scrollToSection('contact')}
-                      className="w-full bg-[#F28C38] hover:bg-[#dd7c2d] text-white font-semibold px-5 py-3.5 rounded-xl transition-all text-sm sm:text-base"
-                    >
-                      Start a Project
-                    </button>
-                  </div>
-                </div>
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="block w-full text-left px-5 py-4 border-b hover:bg-gray-50"
+                  >
+                    {item.name}
+                  </button>
+                ))}
+
               </div>
+
             </div>
           )}
+
         </div>
       </nav>
+
     </header>
   );
 };

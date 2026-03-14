@@ -1,4 +1,3 @@
-
 import {
   FiTarget,
   FiZap,
@@ -6,135 +5,163 @@ import {
   FiTrendingUp,
   FiCpu,
   FiCheckCircle,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 
 const WhyUs: React.FC = () => {
   const reasons = [
     {
+      number: "01",
       icon: <FiTarget className="w-6 h-6" />,
-      title: 'Strategy Before Design',
+      title: "Strategy Before Design",
       description:
-        'We start with research and planning so every design decision has direction, purpose, and measurable impact.',
+        "We start with research and planning so every design decision has direction, purpose, and measurable impact.",
     },
     {
+      number: "02",
       icon: <FiZap className="w-6 h-6" />,
-      title: 'Performance-Driven Development',
+      title: "Performance Driven Development",
       description:
-        'Fast-loading pages, optimized structure, and smooth interactions that improve user experience and trust.',
+        "Fast loading pages, optimized structure, and smooth interactions that improve user experience and trust.",
     },
     {
+      number: "03",
       icon: <FiCode className="w-6 h-6" />,
-      title: 'Clean & Scalable Code',
+      title: "Clean and Scalable Code",
       description:
-        'We build maintainable systems with clean architecture, making future updates and growth easier.',
+        "We build maintainable systems with clean architecture, making future updates and growth easier.",
     },
     {
+      number: "04",
       icon: <FiTrendingUp className="w-6 h-6" />,
-      title: 'Conversion-Focused Structure',
+      title: "Conversion Focused Structure",
       description:
-        'Every section is arranged to guide users clearly toward engagement, trust, and meaningful business action.',
+        "Every section is arranged to guide users clearly toward engagement, trust, and meaningful business action.",
     },
     {
+      number: "05",
       icon: <FiCpu className="w-6 h-6" />,
-      title: 'Long-Term Product Thinking',
+      title: "Long Term Product Thinking",
       description:
-        'We build with the future in mind, helping your product stay useful, adaptable, and competitive over time.',
+        "We build with the future in mind, helping your product stay useful, adaptable, and competitive over time.",
+    },
+    {
+      number: "06",
+      icon: <FiCheckCircle className="w-6 h-6" />,
+      title: "Reliable Delivery and Support",
+      description:
+        "We stay focused on quality delivery, clear communication, and dependable support throughout the project journey.",
     },
   ];
 
   const stats = [
-    { number: '100%', label: 'Client Satisfaction' },
-    { number: '10+', label: 'Projects Launched' },
-    { number: '2+', label: 'Years Experience' },
-    { number: '24/7', label: 'Support Available' },
+    { number: "100%", label: "Client Satisfaction" },
+    { number: "10+", label: "Projects Launched" },
+    { number: "2+", label: "Years Experience" },
+    { number: "24/7", label: "Support Available" },
   ];
 
   return (
     <section
       id="why-us"
-      className="relative py-24 bg-gradient-to-br from-[#4B0082] via-[#5A189A] to-[#6A0DAD] overflow-hidden"
+      className="relative py-24 md:py-28 bg-[#11131A] overflow-hidden"
     >
-      {/* Soft background */}
-      <div className="absolute inset-0 opacity-10">
+      {/* subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.04]">
         <div
           className="w-full h-full"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.7) 1px, transparent 0)',
-            backgroundSize: '36px 36px',
+              "radial-gradient(circle at 2px 2px, #ffffff 1px, transparent 0)",
+            backgroundSize: "34px 34px",
           }}
         />
       </div>
 
-      <div className="absolute top-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
+      {/* soft glow */}
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#6A0DAD]/10 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
-            <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.25em] text-white/90">
-              Why Choose Us
-            </span>
-            <span className="w-8 h-[2px] bg-[#F28C38]"></span>
-          </div>
+        <div className="text-center mb-14 md:mb-16">
+          <span className="text-sm font-semibold uppercase tracking-[0.28em] text-gray-400 block mb-4">
+            Why Choose CurriumX
+          </span>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Why <span className="text-[#F28C38]">CurriumX</span>?
+            Built With Strategy,
+            <br className="hidden sm:block" /> Designed For Results
           </h2>
 
-          <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            We combine strategy, design, and development to create digital products
-            that do more than look good — they perform.
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            We combine product thinking, modern design, and strong development
+            standards to create digital solutions that are useful, scalable, and
+            built for long term value.
           </p>
         </div>
 
-        {/* Reasons */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
-          {reasons.map((reason, index) => (
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-7 mb-12">
+          {reasons.map((reason) => (
             <div
-              key={index}
-              className="group bg-white/10 border border-white/15 backdrop-blur-sm rounded-2xl p-7 hover:bg-white/15 hover:border-white/25 transition-all duration-300"
+              key={reason.number}
+              className="group relative bg-white/5 border border-white/10 rounded-2xl p-7 backdrop-blur-sm hover:bg-white/10 hover:border-[#6A0DAD]/40 transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-white mb-6 group-hover:bg-[#F28C38] group-hover:text-white transition-all duration-300">
+              <span className="absolute top-6 right-6 text-sm font-bold text-white/20 group-hover:text-[#C0C0C0] transition-colors duration-300">
+                {reason.number}
+              </span>
+
+              <div className="w-14 h-14 rounded-xl bg-[#1B1E28] border border-white/10 flex items-center justify-center text-[#C0C0C0] group-hover:bg-gradient-to-br group-hover:from-[#6A0DAD] group-hover:to-[#4B0082] group-hover:text-white transition-all duration-300 mb-6">
                 {reason.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#C0C0C0] transition-colors duration-300">
                 {reason.title}
               </h3>
 
-              <p className="text-white/75 leading-relaxed text-sm md:text-base">
+              <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                 {reason.description}
               </p>
+
+              <div className="mt-6 w-12 h-[2px] bg-[#6A0DAD] group-hover:w-20 transition-all duration-300" />
             </div>
           ))}
         </div>
 
-        {/* Quote card */}
-        <div className="mt-10">
-          <div className="bg-white/10 border border-white/15 backdrop-blur-sm rounded-3xl p-8 md:p-10 text-center">
-            <FiCheckCircle className="w-12 h-12 text-[#F28C38] mx-auto mb-4" />
-            <p className="text-2xl md:text-3xl font-light italic text-white">
-              “We don’t just build. We build with purpose.”
+        {/* Bottom section */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-7">
+          {/* Quote block */}
+          <div className="relative bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-sm overflow-hidden">
+            <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#6A0DAD] via-[#7b2be0] to-[#C0C0C0]" />
+
+            <div className="w-14 h-14 rounded-xl bg-[#1B1E28] border border-white/10 flex items-center justify-center text-[#C0C0C0] mb-6">
+              <FiCheckCircle className="w-6 h-6" />
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
+              We do not just build digital products, we build with purpose.
+            </h3>
+
+            <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
+              Every decision, from structure to interface to performance, is made
+              to help your brand communicate better, grow stronger, and deliver
+              a better user experience.
             </p>
           </div>
-        </div>
 
-        {/* Stats */}
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-5">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="bg-white/10 border border-white/10 rounded-2xl p-5 text-center backdrop-blur-sm"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
-                {stat.number}
-              </h3>
-              <p className="text-sm text-white/75 mt-2">{stat.label}</p>
-            </div>
-          ))}
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-4">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 text-center backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              >
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  {stat.number}
+                </h3>
+                <p className="text-sm text-gray-400 mt-2">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

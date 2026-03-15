@@ -47,10 +47,10 @@ router.put('/messages/:id/read', protectAdmin, markMessageAsRead);
 router.delete('/messages/:id', protectAdmin, deleteUserMessage);
 router.post('/login', authAdmin);
 router.post('/register', registerAdmin);
-router.post('/upload', protectAdmin, upload.single('image'), uploadProject);
+router.post('/upload',  upload.single('image'), uploadProject);
 router.get('/project', getProjects)
-router.put('/project/:id', protectAdmin, upload.single('image'), editProject)
-router.delete('/project/:id', protectAdmin, deleteProject)
+router.put('/project/:id', upload.single('image'), editProject)
+router.delete('/project/:id', deleteProject)
 router.post('/logout', logoutAdmin);
 
 export default router

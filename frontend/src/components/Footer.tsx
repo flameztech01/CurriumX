@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/curriumx",
+      href: "https://instagram.com/curriumxtechnologies",
       icon: <FiInstagram className="w-5 h-5" />,
     },
   ];

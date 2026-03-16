@@ -4,8 +4,8 @@ import {
   FiTwitter,
   FiInstagram,
   FiHeart,
-  FiX,
 } from "react-icons/fi";
+import { SiTiktok } from "react-icons/si";
 
 type ModalType = "privacy" | "terms" | null;
 
@@ -23,13 +23,13 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     {
-      name: "LinkedIn",
-      href: "https://linkedin.com/company/curriumx",
-      icon: <FiLinkedin className="w-5 h-5" />,
+      name: "TikTok",
+      href: "https://tiktok.com/@curriumxtech",
+      icon: <SiTiktok className="w-5 h-5" />,
     },
     {
       name: "Twitter",
-      href: "https://twitter.com/curriumx",
+      href: "https://twitter.com/curriumXTech",
       icon: <FiTwitter className="w-5 h-5" />,
     },
     {

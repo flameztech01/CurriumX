@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import {
+  FiLinkedin,
   FiTwitter,
   FiInstagram,
   FiHeart,

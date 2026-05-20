@@ -199,14 +199,14 @@ const Footer: React.FC = () => {
             />
           </div>
 
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[420px] h-[420px] bg-[#6A0DAD]/10 blur-3xl rounded-full" />
-          <div className="absolute bottom-0 right-0 w-[280px] h-[280px] bg-white/5 blur-3xl rounded-full" />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-105 h-105 bg-[#6A0DAD]/10 blur-3xl rounded-full" />
+          <div className="absolute bottom-0 right-0 w-70 h-70 bg-white/5 blur-3xl rounded-full" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-16 md:pt-20">
           {/* Top card */}
           <div className="bg-white rounded-[28px] border border-[#ECECEC] shadow-[0_20px_60px_rgba(0,0,0,0.18)] overflow-hidden">
-            <div className="h-1.5 w-full bg-gradient-to-r from-[#6A0DAD] via-[#7b2be0] to-[#C0C0C0]" />
+            <div className="h-1.5 w-full bg-linear-to-r from-[#6A0DAD] via-[#7b2be0] to-[#C0C0C0]" />
 
             <div className="px-6 md:px-10 py-10 md:py-12">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-10">

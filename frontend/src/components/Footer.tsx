@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import {
-  FiLinkedin,
   FiTwitter,
   FiInstagram,
   FiHeart,
+  FiX,
 } from "react-icons/fi";
 import { SiTiktok } from "react-icons/si";
 
